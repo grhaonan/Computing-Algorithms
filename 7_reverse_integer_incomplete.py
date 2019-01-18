@@ -14,7 +14,11 @@ class Solution:
                 result.append(number)
             else:
                 result.append(i)
-        return int(''.join(result))
+        result = int(''.join(result))
+        
+        if result > (2**31 -1) or result < -(2**31):
+            return 0
+        else:
+            return result
 
-#这个题还没有做完，没有考虑input超出[-2^31, 2^31]范围需要返回0的问题
 #其次我也不是很理解为什么使用for i in str(x)的时候 input_as_list.pop()是可以输出所有数值的。如果使用for i in input_as_list, 就只能pop出两个数值就停止了
